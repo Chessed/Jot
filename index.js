@@ -2,7 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const MongoClient = require('mongodb').MongoClient;
-const dbPass = encodeURI("M0r3chips!");
+const ObjectId = require('mongodb').ObjectID;
+const dbPass = encodeURI("1qaz2wsx");
 
 const uri = "mongodb+srv://Chess:"+dbPass+"@cluster0.hutuy.mongodb.net/jot_db?retryWrites=true&w=majority";
 
@@ -34,15 +35,16 @@ MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
                 console.log(result);
             })
             .catch(error => console.error(error))
-        });
-        //Edit button action
-        app.put('/addNotes', (req,res) => {
-            console.log(req.body);
+            res.redirect('/');
         });
 
         //Delete note
-        app.get('/removeNotes/:id', (req, res)  => {
-            collection.findOneAndDelete({ _id: req.params.id })
+        app.get('/deleteNotes/:id', (req, res)  => {
+            console.log(req.params.id);
+            collection.findOneAndDelete({ _id: ObjectId(req.params.id)}, (err, result) => {
+                if (err) return res.send(500, err);
+            })
+            res.redirect('/');
         });
     })
     .catch(console.error)

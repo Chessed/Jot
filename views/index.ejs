@@ -17,23 +17,25 @@
       </form>
       <table class="table table-bordered">
         <thead>
-          <tr>Note</tr>
-          <tr>Action</tr>
+          <tr>
+            <td class="text-center col-sm-10">Note</td>
+            <td class="text-center col-sm-2">Action</td>
+          </tr>
         </thead>
         <tbody>
           <% for(let i = 0; i < notes.length; i++) {%>
             <tr>
               <td class="col-sm-10"><%= notes[i].newNote %></td>
               <td class="col-sm-2">
-                <button class="btnEdit btn" id="<%=notes[i]._id %>"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button>
-                <button class="btnDelete btn" id="<%=notes[i]._id %>"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></button>
+                <a href = '/deleteNotes/<%=notes[i]._id %>'>
+                  <button class="btnDelete btn" id="<%=notes[i]._id %>"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></button>
+                </a>
               </td>
             </tr>
           <% } %>
         </tbody>
       </table>
     </div>
-    <script src="/main.js"></script>
   </div>
 </body>
 
