@@ -1,0 +1,34 @@
+{
+  "name": "jot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "start",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chessed/Jot.git"
+  },
+  "keywords": [
+    "G0n3wild!"
+  ],
+  "author": "Chess",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chessed/Jot/issues"
+  },
+  "homepage": "https://github.com/Chessed/Jot#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "jquery": "^3.5.1",
+    "jsdom": "^16.4.0",
+    "mongodb": "^3.6.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

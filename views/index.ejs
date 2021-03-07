@@ -1,0 +1,43 @@
+<html>
+
+<head>
+  <title>Jot Note</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="jumbotron">
+      <h2>Jot</h2>
+      <form action="/addNotes" method="POST">
+        <div class="form-group">
+          <textarea class="form-control" type="text" name="newNote" id="newNote" placeholder="Add new Note"></textarea>
+          <button class="btn btn-success" type="submit">Add Note</button>
+        </div>
+      </form>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <td class="text-center col-sm-10">Note</td>
+            <td class="text-center col-sm-2">Action</td>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(let i = 0; i < notes.length; i++) {%>
+            <tr>
+              <td class="col-sm-10"><%= notes[i].newNote %></td>
+              <td class="col-sm-2">
+                <a href = '/deleteNotes/<%=notes[i]._id %>'>
+                  <button class="btnDelete btn" id="<%=notes[i]._id %>"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></button>
+                </a>
+              </td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+
+
+</html>
